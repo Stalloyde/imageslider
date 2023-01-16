@@ -7,10 +7,8 @@ const img2 = document.getElementById('img2');
 const img3 = document.getElementById('img3');
 const img4 = document.getElementById('img4');
 const img5 = document.getElementById('img5');
+let navBarClicked = false;
 
-let navBarclicked = false;
-const backwardArrow = document.getElementById('arrow-backward');
-const forwardArrow = document.getElementById('arrow-forward');
 const images = [
   {
     name: img1,
@@ -34,9 +32,17 @@ const images = [
   },
 ];
 
+const backwardArrow = document.getElementById('arrow-backward');
+const forwardArrow = document.getElementById('arrow-forward');
+
 function showDefaultImage(img) {
   img.classList.add('appear');
 }
+
+showDefaultImage(img1);
+
+forwardArrow.addEventListener('click', showNextImage);
+backwardArrow.addEventListener('click', showPreviousImage);
 
 function showNextImage(dataKey) {
   for (let i = 0; i < images.length; i++) {
@@ -51,15 +57,16 @@ function showNextImage(dataKey) {
 
       let indexOfNextImage = indexOfOldImage + 1;
 
+      if (navBarClicked === true) {
+        indexOfNextImage = dataKey;
+        navBarClicked = false;
+      }
+
       let nextImage = images[indexOfNextImage];
+
       if (indexOfNextImage === images.length) {
         indexOfNextImage = 0;
         nextImage = images[0];
-      }
-
-      if (navBarclicked === true) {
-        indexOfNextImage = dataKey;
-        navBarclicked = false;
       }
 
       navBtn.forEach((btn) => {
@@ -124,11 +131,6 @@ function showPreviousImage() {
     }
   }
 }
-
-showDefaultImage(img1);
-forwardArrow.addEventListener('click', showNextImage);
-backwardArrow.addEventListener('click', showPreviousImage);
-
 navBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     navBtn.forEach((x) => {
@@ -137,7 +139,7 @@ navBtn.forEach((btn) => {
       }
     });
     const dataKey = Number(btn.getAttribute('data-key'));
-    navBarclicked = true;
+    navBarClicked = true;
     showNextImage(dataKey);
     btn.classList.add('clicked');
   });
