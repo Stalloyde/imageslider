@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="test">test</div>
-    <div class="test">test2</div>
-    <div class="test">test3</div>
-    <div class="test">test4</div>
-    <div class="test">test5</div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Slider</title>
+</head>
+
+<body>
+  <div id="arrow-backward">
+    <img src="./images/arrow-backward.svg" alt="arrow-backward" class="arrow">
+  </div>
+  <div class="image-carousel">
+    <img src="./images/img1.jpg" alt="img1" id="img1" class="disappear">
+    <img src="./images/img2.jpg" alt="img2" id="img2" class="disappear">
+    <img src="./images/img3.jpg" alt="img3" id="img3" class="disappear">
+    <img src="./images/img4.jpg" alt="img4" id="img4" class="disappear">
+    <img src="./images/img5.jpg" alt="img5" id="img5" class="disappear">
+  </div>
+  <div id="arrow-forward">
+    <img src="./images/arrow-forward.svg" alt="arrow-forward" class="arrow">
+  </div>
+  <div class="nav-buttons">
+    <div class="nav-btn clicked" data-key="0">&nbsp;</div>
+    <div class="nav-btn" data-key="1">&nbsp;</div>
+    <div class="nav-btn" data-key="2">&nbsp;</div>
+    <div class="nav-btn" data-key="3">&nbsp;</div>
+    <div class="nav-btn" data-key="4">&nbsp;</div>
+  </div>
+</body>
+
 </html>

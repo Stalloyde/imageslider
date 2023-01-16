@@ -1,7 +1,7 @@
 {
-  "name": "webpack-demo",
+  "name": "image-slider",
   "version": "1.0.0",
-  "description": "A template for my preferred webpack set up. New projects can start here",
+  "description": "A simple image slider to practice css",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -41,10 +41,10 @@
   "main": "webpack.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Stalloyde/webpack-template.git"
+    "url": "git+https://github.com/Stalloyde/imageslider.git"
   },
   "bugs": {
-    "url": "https://github.com/Stalloyde/webpack-template/issues"
+    "url": "https://github.com/Stalloyde/imageslider/issues"
   },
-  "homepage": "https://github.com/Stalloyde/webpack-template#readme"
+  "homepage": "https://github.com/Stalloyde/imageslider#readme"
 }
