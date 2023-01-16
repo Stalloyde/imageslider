@@ -41,9 +41,6 @@ function showDefaultImage(img) {
 
 showDefaultImage(img1);
 
-forwardArrow.addEventListener('click', showNextImage);
-backwardArrow.addEventListener('click', showPreviousImage);
-
 function showNextImage(dataKey) {
   for (let i = 0; i < images.length; i++) {
     if (images[i].zIndexJS === 1) {
@@ -131,6 +128,12 @@ function showPreviousImage() {
     }
   }
 }
+
+forwardArrow.addEventListener('click', showNextImage);
+backwardArrow.addEventListener('click', showPreviousImage);
+
+setInterval(showNextImage, 5000);
+
 navBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     navBtn.forEach((x) => {
