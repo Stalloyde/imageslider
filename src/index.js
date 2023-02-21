@@ -35,12 +35,6 @@ const images = [
 const backwardArrow = document.getElementById('arrow-backward');
 const forwardArrow = document.getElementById('arrow-forward');
 
-function showDefaultImage(img) {
-  img.classList.add('appear');
-}
-
-showDefaultImage(img1);
-
 function showNextImage(dataKey) {
   for (let i = 0; i < images.length; i++) {
     if (images[i].zIndexJS === 1) {
@@ -49,8 +43,7 @@ function showNextImage(dataKey) {
       const oldImageHTML = oldImage.name;
       oldImage.zIndexJS = 0;
       oldImageHTML.style.zIndex = '0';
-      oldImageHTML.classList.add('disappear');
-      oldImageHTML.classList.remove('appear');
+      oldImageHTML.setAttribute('class', 'img left');
 
       let indexOfNextImage = indexOfOldImage + 1;
 
@@ -81,8 +74,15 @@ function showNextImage(dataKey) {
       const nextImageHTML = nextImage.name;
       nextImage.zIndexJS = 1;
       nextImageHTML.style.zIndex = '1';
-      nextImageHTML.classList.remove('disappear');
-      nextImageHTML.classList.add('appear');
+      nextImageHTML.setAttribute('class', 'img center');
+
+      if (nextImageHTML.id === 'img1') {
+        img1.setAttribute('class', 'img center');
+        img2.setAttribute('class', 'img right');
+        img3.setAttribute('class', 'img right');
+        img4.setAttribute('class', 'img right');
+        img5.setAttribute('class', 'img right');
+      }
       return;
     }
   }
@@ -96,8 +96,7 @@ function showPreviousImage() {
       const oldImageHTML = oldImage.name;
       oldImage.zIndexJS = 0;
       oldImageHTML.style.zIndex = '0';
-      oldImageHTML.classList.add('disappear');
-      oldImageHTML.classList.remove('appear');
+      oldImageHTML.setAttribute('class', 'right');
 
       let indexOfNextImage = indexOfOldImage - 1;
       let nextImage = images[indexOfNextImage];
@@ -122,8 +121,15 @@ function showPreviousImage() {
       const nextImageHTML = nextImage.name;
       nextImage.zIndexJS = 1;
       nextImageHTML.style.zIndex = '1';
-      nextImageHTML.classList.remove('disappear');
-      nextImageHTML.classList.add('appear');
+      nextImageHTML.setAttribute('class', 'center');
+
+      if (nextImageHTML.id === 'img5') {
+        img1.setAttribute('class', 'img left');
+        img2.setAttribute('class', 'img left');
+        img3.setAttribute('class', 'img left');
+        img4.setAttribute('class', 'img left');
+        img5.setAttribute('class', 'img center');
+      }
       return;
     }
   }
@@ -132,7 +138,7 @@ function showPreviousImage() {
 forwardArrow.addEventListener('click', showNextImage);
 backwardArrow.addEventListener('click', showPreviousImage);
 
-setInterval(showNextImage, 5000);
+// setInterval(showNextImage, 5000);
 
 navBtn.forEach((btn) => {
   btn.addEventListener('click', () => {

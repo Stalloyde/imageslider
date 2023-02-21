@@ -43,9 +43,10 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-.image-carousel > img {
+img {
   position: absolute;
   height: 100%;
 }
@@ -70,13 +71,22 @@ body {
   z-index: 0;
 }
 
-.disappear {
+.left {
   opacity: 0;
+  transition: all ease 1s;
+  transform: translate(-100%);
 }
 
-.appear {
+.center {
   opacity: 1;
-  transition: opacity ease 1s;
+  transition: all ease 1s;
+  transform: translate(0%);
+}
+
+.right {
+  opacity: 0;
+  transition: all ease 1s;
+  transform: translate(50%);
 }
 
 .nav-buttons {
